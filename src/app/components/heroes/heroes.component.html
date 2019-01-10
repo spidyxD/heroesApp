@@ -1,0 +1,50 @@
+<h1>Heroes</h1>
+<hr>
+<div class="row animated fadeIn Fast">
+    <div [routerLink]="['/heroe','new']" class="col-md-12 text-right">
+        <button class="btn btn-outline-primary" type="button" name="button">
+       add new hero</button>
+    </div>
+</div>
+<br>
+<div class="row animated fadeIn Fast">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-dark">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Bio</th>
+                        <th class="text-right" scope="col">Edit info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- el pipe permite que la informacion del key no se pierda 
+                    y retorne la info completa del arreglo posteriormente solo se busca 
+                        el objeto con su index-->
+                    <tr *ngFor="let k of heroes | keys; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{heroes[k].name}}</td>
+                        <td>{{heroes[k].company}}</td>
+                        <td>{{heroes[k].bio}}</td>
+                        <td class="text-right w120">
+                            <button [routerLink]="['/heroe',k]" type="button" class="btn btn-outline-success">Edit</button>
+                            <button (click)="deleteHero(k)" type="button" class="btn btn-outline-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- generando alertas con bootstrap-->
+            <div *ngIf="(heroes | keys).length === 0 && !loading" class="alert alert-info" role="alert">
+                <strong>no data to show</strong>
+            </div>
+
+            <div *ngIf="loading" class="alert alert-warning" role="alert">
+                <strong>loading data... please wait</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
