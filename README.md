@@ -1,7 +1,7 @@
 # HeroesApp
 <image ="presentation.jpg" alt="image not avaible"
 <p>
-This aplication allows create, edit and delte a hero profiles using firebase services! 
+This aplication allows create, edit and delete hero profiles using firebase services! 
  <br> 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
